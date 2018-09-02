@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-let rooms = require('./data/rooms.json')
+
 const bodyParser = require('body-parser')
 const adminRoutes = require('./admin-routes')
 
@@ -16,9 +16,9 @@ app.use(express.static('node_modules/bootstrap/dist'))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/', (request, response) => response.render('index', { title: 'Home' }))
+app.get('/', (request, response) => response.render('index-view', { title: 'Home' }))
 
-app.use('/admin', adminRoutes.routes)
+app.use('/admin', adminRoutes.router)
 
 const port = 3000
 app.listen(port, () => log(`Node Chat App listening on port ${port}!`))

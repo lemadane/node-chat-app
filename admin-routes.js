@@ -3,19 +3,17 @@ const admin = require('./admin-controller')
 
 const router = Router()
 
-router.route('/rooms')
-      .all((res, req, next) => next())
-
-      .get('/', admin.getAdminRooms)
+router
+      .get('/rooms', admin.getAdminRooms)
       
-      .get('/add', admin.getAddAdminRoom)
+      .get('/rooms/add', admin.getAddAdminRoom)
       
-      .post('/add', admin.postAddAdminRooms)
+      .post('/rooms/add', admin.postAddAdminRooms)
       
-      .get('/edit/:id', admin.getEditAdminRooms)
+      .get('/rooms/edit/:id', admin.getEditAdminRooms)
       
-      .post('/edit/:id', admin.postEditAdminRooms)
+      .post('/rooms/edit/:id', admin.postEditAdminRooms)
       
-      .get('/delete/:id', admin.getDeleteAdminRooms)
+      .get('/rooms/delete/:id', admin.getDeleteAdminRooms)
 
 exports.router = router

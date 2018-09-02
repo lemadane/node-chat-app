@@ -1,14 +1,14 @@
 const uuid = require('uuid')
-
+let rooms = require('./data/rooms.json')
 
 exports.getAdminRooms = (request, response) => {
-    response.render('rooms', {
+    response.render('rooms-view', {
         title: 'Admin Rooms',
         rooms: rooms
     })
 }
 
-    , exports.getAddAdminRoom = (request, response) => response.render('room-add')
+    , exports.getAddAdminRoom = (request, response) => response.render('rooms-add-view')
 
 
     , exports.postAddAdminRooms = (request, response) => {
@@ -34,7 +34,7 @@ exports.getAdminRooms = (request, response) => {
             return
         }
 
-        response.render('room-edit', { room })
+        response.render('rooms-edit-view', { room })
     }
 
     , exports.postEditAdminRooms = (request, response) => {
